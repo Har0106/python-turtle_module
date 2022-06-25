@@ -42,9 +42,12 @@ turtle.onkey(move.right, 'Right')
 
 while True:
     screen.update()
-    # print(move.dis, food.pos())
+    print(move.dis, food.pos())
     if move.dis == food.pos():
         food.hideturtle()
+        food.setpos(random.randrange(-200,200, step=20), random.randrange(-200,200, step=20))
+        food.showturtle()
+    elif move.dis == (300,300):
         break
 
 turtle.done()
