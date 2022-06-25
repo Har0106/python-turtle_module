@@ -9,7 +9,7 @@ snake.penup()
 
 class Move():
     def __init__(self):
-        self.dis = 0
+        self.dis = (0, 0)
     def up(self):
         snake.setheading(90)
         snake.forward(20)
