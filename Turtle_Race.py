@@ -19,7 +19,7 @@ for i in range(n):
     har = turtle.Turtle()
     har.shape('turtle')
     har.setheading(90)
-    har.color(['red', 'blue', 'yellow', 'black', 'green'][i])
+    har.color(colors[i])
     har.penup()
     x = -width + ((width*2 // (int(n)+1))*(i+1))
     har.setpos(x, -250)
@@ -40,4 +40,15 @@ while True:
         break
 
 print(f'The Winner is {winner.capitalize()} Turtle')
-time.sleep(5)
+
+with open('scores.txt', 'r+') as file:
+    content = ''
+    for i in file.readlines():
+        win, score = i.split(' : ')
+        if win == winner:
+            i = f'{win} : {int(score)+1}\n'
+        content += i
+    file.seek(0)
+    file.write(content)
+
+time.sleep(3)
