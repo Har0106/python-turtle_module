@@ -5,11 +5,15 @@ import time
 width, length = 400, 400
 colors = ['red', 'blue', 'yellow', 'black', 'green']
 
-n = input('How many racers do you want? ')
+n = input('How many racers do you want (1-5)? ').strip()
 while True:
-    if n.isdigit():
-        n = int(n)
-        break
+    if n.isdigit() and n != '0':
+        if int(n) <= 5:
+            n = int(n)
+            break
+        else:
+            n = input('Number out of range. Try again: ')
+            continue
     else:
         n = input('Invalid number try again: ')
 
